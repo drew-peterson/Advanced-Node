@@ -11,7 +11,7 @@ afterEach(async () => {
 });
 
 describe('When logged in', async () => {
-  // ran before all tests under
+  // run before all tests under
   beforeEach(async () => {
     await page.login();
     await page.click('a.btn-floating');
