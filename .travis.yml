@@ -3,7 +3,7 @@ language: node_js
 # array
 node_js:
   - "8" #version of node
-dist: trusty
+dist: trusty #virtual machine
 # need to tell travis to use its own local mongo and redis-server
 servers:
   - mongodb
