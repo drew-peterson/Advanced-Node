@@ -2,18 +2,25 @@ language: node_js
 node_js:
   - "8"
 dist: trusty
+# need to tell travis to use its own local mongo and redis-server
 services:
   - mongodb
   - redis-server
+# set the node envioronment variables to be used in project
+# tell express to start on port 3000 && set node env to ci -- needs to be on same line!!!
 env:
   - NODE_ENV=ci PORT=3000
+#tell travis to use cache version of node_modules so it doesnt install each time
 cache:
   directories:
     - node_modules
     - client/node_modules
+# look at package.json how we install
 install:
   - npm install
   - npm run build
+# noup: if shell is closed, dont kill anything this command creates
+# &: run this command in background - works without noup...
 script:
   - nohup npm run start &
   - sleep 3
